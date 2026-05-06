@@ -1,0 +1,28 @@
+# Python 编译缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch 模型权重与检查点
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+logs/
+runs/
+
+# 数据集文件夹 (由于已开源至Hugging Face，本地跑出来的数据切勿上传)
+data/
+dataset/
+*.csv
+*.sdf
+*.npz
+
+# IDE 和系统隐藏文件
+.vscode/
+.idea/
+.DS_Store
+
+# 虚拟环境
+venv/
+env/
