@@ -95,5 +95,3 @@ This project is licensed under the MIT License.
 <br>
 <hr>
 <br>
-python train.py --config config.py
-```
