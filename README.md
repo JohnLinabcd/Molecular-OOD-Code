@@ -3,7 +3,6 @@
 [![Dataset](https://img.shields.io/badge/Dataset-SCOPE--Bench-blue)](#)
 [![Paper](https://img.shields.io/badge/Paper-NeurIPS_2026-green)](#)
 
-[👉 **点击这里查看中文版 README (Chinese Version)**](#中文版-chinese-version)
 
 This repository contains the official PyTorch implementation for the paper: **"Rethinking Molecular OOD Generalization via Target-Aware Source Selection"** (Submitted to NeurIPS 2026).
 
@@ -96,70 +95,5 @@ This project is licensed under the MIT License.
 <br>
 <hr>
 <br>
-
-<h2 id="中文版-chinese-version">🇨🇳 中文版</h2>
-
-# 通过目标感知源域选择反思分子分布外泛化
-
-本仓库包含论文 **"Rethinking Molecular OOD Generalization via Target-Aware Source Selection"** (NeurIPS 2026 投稿) 的官方 PyTorch 实现。
-
-## 📌 概览
-
-在极端分布外（OOD）场景下对分子属性进行鲁棒预测是 AI 驱动药物发现的核心瓶颈。在本仓库中，我们提供：
-1. **SCOPE-Bench**: 一个基于理化描述符显式聚类构建的严格 OOD 评估基准，彻底消除了评估偏差与捷径学习。
-2. **POMA**: 一种策略驱动的自适应框架，通过组合源域选择策略和双尺度解耦域自适应，有效克服了负迁移。
-
-## 📂 代码结构
-
-- `SCOPE_Bench/`: 用于生成严格 OOD 数据划分的脚本。
-- `SupervisedLearning/`: 3 种 SOTA 3D 几何等变主干网络的纯监督基线实现。
-- `POMA/`: 本文核心策略管道的实现，解耦为：
-  - `POMA_GRPO`: 使用 Group Relative Policy Optimization 进行的一次性离线策略寻优。
-  - `POMA_DA`: 针对真实目标任务的在线 dual-scale 解耦多源域自适应（MSDA）。
-
-## ⚙️ 环境安装
-
-由于 ETNN 依赖拓扑数据分析库，而 ViSNet/GotenNet 环境有所不同，我们根据真实的实验环境提供了两份不同的依赖文件：
-
-**选项 A: 用于 ETNN (Python 3.10)**
-*包含 `gudhi`, `toponetx` 等拓扑图神经网络必备依赖。*
-```bash
-conda create -n etnn_env python=3.10
-conda activate etnn_env
-pip install -r requirements_etnn.txt
-```
-
-**选项 B: 用于 ViSNet 与 GotenNet (Python 3.8)**
-```bash
-conda create -n visnet_env python=3.8
-conda activate visnet_env
-pip install -r requirements_visnet.txt
-```
-
-## 🚀 运行指南
-
-### 1. 数据准备
-运行以下脚本在本地生成预处理数据集：
-```bash
-cd SCOPE_Bench
-python splitter.py 
-```
-
-### 2. 运行纯监督基线
-```bash
-cd SupervisedLearning/etnn
-python train.py --config config.py 
-```
-
-### 3. 运行 POMA 框架
-**第一阶段：离线策略寻优 (GRPO)**
-```bash
-cd POMA/etnn/POMA_GRPO
-python controller.py --config config.py
-```
-
-**第二阶段：在线任务自适应 (MSDA)**
-```bash
-cd POMA/etnn/POMA_DA
 python train.py --config config.py
 ```
