@@ -1,10 +1,9 @@
-# Rethinking Molecular OOD Generalization via Target-Aware Source Selection
+# Learning to Select Source Domains: Proxy-Rewarded Policy Optimization for Molecular OOD Generalization
 
 [![Dataset](https://img.shields.io/badge/Dataset-SCOPE--Bench-blue)](#)
-[![Paper](https://img.shields.io/badge/Paper-NeurIPS_2026-green)](#)
 
 
-This repository contains the official PyTorch implementation for the paper: **"Rethinking Molecular OOD Generalization via Target-Aware Source Selection"** (Submitted to NeurIPS 2026).
+This repository contains the official PyTorch implementation for the paper: **"Learning to Select Source Domains: Proxy-Rewarded Policy Optimization for Molecular OOD Generalization"** .
 
 ## 📌 Overview
 
