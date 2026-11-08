@@ -192,7 +192,7 @@ class QM9BalancedSplitterOptimized:
         
         return strata_data, scaffold_to_stratum
     
-    def balance_strata_clusters(self, strata_data, scaffold_to_stratum, total_clusters=12):
+    def balance_strata_clusters(self, strata_data, scaffold_to_stratum, total_clusters=8):
         """平衡分层聚类分配"""
         print("\n平衡分层聚类分配...")
         
@@ -403,7 +403,7 @@ class QM9BalancedSplitterOptimized:
             strata_data, scaffold_to_stratum = self.prepare_stratified_data(feature_df)
             
             # 4. 平衡分配聚类数
-            clusters_per_stratum = self.balance_strata_clusters(strata_data, scaffold_to_stratum, total_clusters=12)
+            clusters_per_stratum = self.balance_strata_clusters(strata_data, scaffold_to_stratum, total_clusters=8)
             
             # 5. 各层内部聚类
             all_scaffold_clusters = self.cluster_within_strata(strata_data, clusters_per_stratum)
